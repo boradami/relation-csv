@@ -1,0 +1,11 @@
+<%= form_with model: @state do |form| %>
+
+  <div>
+    <%= form.label :name, "State Name:- "%>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+      <%= form.submit class: "btn btn-outline-success" %>
+  </div>
+<% end %>

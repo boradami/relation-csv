@@ -1,0 +1,21 @@
+<%= form_with model: @taluka do |form| %>
+  
+  <div>
+    <%= form.label :name, "Taluka Name:- " %>
+    <%= form.text_field :name %>
+  </div>
+  
+  <div>
+    <%= form.label :name , "Dist Name:-" %>
+    <%= form.select :dist_id, Dist.all.map {|p| [p.name, p.id]}%>
+  </div>
+
+  <div>
+    <%= form.label :name , "State Name:-" %>
+    <%= form.select :state_id, State.all.map {|p| [p.name, p.id]}%>
+  </div><br><br>
+
+  <div>
+      <%= form.submit class: "btn btn-outline-success"%>
+  </div>
+<% end %>

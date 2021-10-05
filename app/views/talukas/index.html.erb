@@ -1,0 +1,35 @@
+<h1 align="center"> Talukas Record</h1>
+
+<%= link_to "Create Talukas Record", new_state_path, class: "btn btn-outline-success" %><br><br>
+
+<%= link_to "Export CSV", talukas_path(format: 'csv'), class: 'btn btn-primary'%><br><br>
+
+<%= form_tag import_talukas_path, multipart: true, class: 'form-inline' do %>
+  <div class="form-group">
+    <%= file_field_tag :file, class: '' %>
+  </div>
+  
+  <div class="form-group">
+    <%= submit_tag "Import CSV", class: 'btn btn-info' %>
+  </div>
+<% end %>
+
+
+<table class="table">
+  <thead>
+    <th> Taluka Name </th>
+    <th> Dist Name </th>
+    <th> State Name </th>
+    <th colspan="3"> Action </th>
+  </thead>
+  <% @talukas.each do |taluka| %>
+    <tr>
+      <td><%= taluka.name %></td>
+      <td><%= taluka.dist.name %></td>
+      <td><%= taluka.state.name %></td>
+      <td><%= link_to "Show", taluka_path(taluka.id), class: "btn btn-outline-success" %></td>
+      <td><%= link_to "Edit", edit_taluka_path(taluka.id),class: "btn btn-outline-success" %></td>
+      <td><%= link_to "Destroy", taluka_path(taluka.id),method: :delete, data: {confirm: "Are You Sure..??"}, class: "btn btn-outline-danger"%></td>
+    </tr>
+  <% end %>
+</table>

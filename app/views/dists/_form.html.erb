@@ -1,0 +1,17 @@
+
+<%= form_with model: @dist do |form| %>
+  
+  <div>
+    <%= form.label :name, "Dist Name:- " %>
+    <%= form.text_field :name %>
+  </div>
+  
+  <div>
+    <%= form.label :name , "State Name:-" %>
+    <%= form.select :state_id, State.all.map {|p| [p.name, p.id]}%>
+  </div><br>
+
+  <div>
+      <%= form.submit class: "btn btn-outline-success"%>
+  </div>
+<% end %>
